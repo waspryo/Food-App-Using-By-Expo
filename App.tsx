@@ -3,6 +3,10 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import {HomeScreen} from './src/screens/HomeScreen';
 import {LandingScreen} from './src/screens/LandingScreen';
 
+// redux
+import {Provider} from 'react-redux';
+import {store} from './src/redux';
+
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
@@ -70,7 +74,9 @@ const AppNavigation = createAppContainer(switchNavigator)
 
 export default function App() {
   return (
-    <AppNavigation/>
+    <Provider store={store}>
+      <AppNavigation/>
+    </Provider>
   );
 }
 
